@@ -234,11 +234,11 @@
 	else
 		if(aggressiveness == 1 && phrase > 6 )
 			phrase = 1
-		else if(aggressiveness == 2 && phrase < 7 || phrase > 11)
+		else if(aggressiveness == 2 && (phrase < 7 || phrase > 11))
 			phrase = 11
-		else if(aggressiveness == 3 && phrase < 11.9 || phrase > 18)
-			phrase = 12
-			to_chat(user, "<span class='notice'>You set the restrictor to: Stop or I'll bash you WHY ITSSAFASFDASDA.</span>")
+		else if(aggressiveness == 3 && phrase < 11.9 )//!(phrase >= 12 && phrase <= 18))
+			phrase = 13
+			//to_chat(user, "[aggressiveness == 3], [phrase >= 1], [phrase <= 12], [!(phrase >= 12 && phrase <= 18)] Phrase: [phrase] Aggressiveness: [aggressiveness]")
 		else
 			switch(aggressiveness)
 				if(1)
@@ -279,9 +279,7 @@
 							to_chat(user, "<span class='notice'>You set the restrictor to: Down on the floor, Creep!</span>")
 							phrase = 7
 				else if(3)
-					to_chat(user, "<span class='notice'>Fire1</span>")
 					switch(phrase)
-						to_chat(user, "<span class='notice'>Fire2</span>")
 						if(12)
 							to_chat(user, "<span class='notice'>You set the restrictor to: Go ahead, make my day.</span>")
 							phrase = 13
@@ -372,7 +370,7 @@
 			if(2)
 				to_chat(user, "\blue You set the restrictor to the third position.")
 				aggressiveness = 3
-				phrase = 12
+				phrase = 13
 			if(3)
 				to_chat(user, "\blue You set the restrictor to the fourth position.")
 				aggressiveness = 4

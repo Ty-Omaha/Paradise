@@ -232,133 +232,135 @@
 	if(actiontype == /datum/action/item_action/halt)
 		halt()
 	else
-		if(aggressiveness == 1 && phrase > 6 )
-			phrase = 1
-		else if(aggressiveness == 2 && (phrase < 7 || phrase > 11))
-			phrase = 11
-		else if(aggressiveness == 3 && phrase < 11.9 )//!(phrase >= 12 && phrase <= 18))
-			phrase = 13
-			//to_chat(user, "[aggressiveness == 3], [phrase >= 1], [phrase <= 12], [!(phrase >= 12 && phrase <= 18)] Phrase: [phrase] Aggressiveness: [aggressiveness]")
-		else
-			switch(aggressiveness)
-				if(1)
-					switch(phrase)
-						if(1)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop in the name of the Law.</span>")
-							phrase = 2
-						if(2)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Compliance is in your best interest.</span>")
-							phrase = 3
-						if(3)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Prepare for justice.</span>")
-							phrase = 4
-						if(4)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Running will only increase your sentence.</span>")
-							phrase = 5
-						if(5)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Don't move, Creep!</span>")
-							phrase = 6
-						if(6)
-							to_chat(user, "<span class='notice'>You set the restrictor to: HALT! HALT! HALT! HALT!</span>")
-							phrase = 1
-				else if(2)
-					switch(phrase)
-						if(7)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Dead or alive you're coming with me.</span>")
-							phrase = 8
-						if(8)
-							to_chat(user, "<span class='notice'>You set the restrictor to: God made today for the crooks we could not catch yesterday.</span>")
-							phrase = 9
-						if(9)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Freeze, Scum Bag!</span>")
-							phrase = 10
-						if(10)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop right there, criminal scum!</span>")
-							phrase = 11
-						if(11)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Down on the floor, Creep!</span>")
-							phrase = 7
-				else if(3)
-					switch(phrase)
-						if(12)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Go ahead, make my day.</span>")
-							phrase = 13
-						if(13)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop breaking the law, ass hole.</span>")
-							phrase = 14
-						if(14)
-							to_chat(user, "<span class='notice'>You set the restrictor to: You have the right to shut the fuck up.</span>")
-							phrase = 15
-						if(15)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Shut up crime!</span>")
-							phrase = 16
-						if(16)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Face the wrath of the golden bolt.</span>")
-							phrase = 17
-						if(17)
-							to_chat(user, "<span class='notice'>You set the restrictor to: I am, the LAW!</span>")
-							phrase = 18
-						if(18)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop or I'll bash you.</span>")
-							phrase = 12
-				else if(4)
-					switch(phrase)
-						if(1)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop in the name of the Law.</span>")
-							phrase = 2
-						if(2)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Compliance is in your best interest.</span>")
-							phrase = 3
-						if(3)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Prepare for justice.</span>")
-							phrase = 4
-						if(4)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Running will only increase your sentence.</span>")
-							phrase = 5
-						if(5)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Don't move, Creep!</span>")
-							phrase = 6
-						if(6)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Down on the floor, Creep!</span>")
-							phrase = 7
-						if(7)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Dead or alive you're coming with me.</span>")
-							phrase = 8
-						if(8)
-							to_chat(user, "<span class='notice'>You set the restrictor to: God made today for the crooks we could not catch yesterday.</span>")
-							phrase = 9
-						if(9)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Freeze, Scum Bag!</span>")
-							phrase = 10
-						if(10)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop right there, criminal scum!</span>")
-							phrase = 11
-						if(11)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop or I'll bash you.</span>")
-							phrase = 12
-						if(12)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Go ahead, make my day.</span>")
-							phrase = 13
-						if(13)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Stop breaking the law, ass hole.</span>")
-							phrase = 14
-						if(14)
-							to_chat(user, "<span class='notice'>You set the restrictor to: You have the right to shut the fuck up.</span>")
-							phrase = 15
-						if(15)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Shut up crime!</span>")
-							phrase = 16
-						if(16)
-							to_chat(user, "<span class='notice'>You set the restrictor to: Face the wrath of the golden bolt.</span>")
-							phrase = 17
-						if(17)
-							to_chat(user, "<span class='notice'>You set the restrictor to: I am, the LAW!</span>")
-							phrase = 18
-						if(18)
-							to_chat(user, "<span class='notice'>You set the restrictor to: HALT! HALT! HALT! HALT!</span>")
-							phrase = 1
+		switch(aggressiveness)
+			if(1)
+				switch(phrase)
+					if(1)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop in the name of the Law.</span>")
+						phrase = 2
+					if(2)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Compliance is in your best interest.</span>")
+						phrase = 3
+					if(3)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Prepare for justice.</span>")
+						phrase = 4
+					if(4)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Running will only increase your sentence.</span>")
+						phrase = 5
+					if(5)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Don't move, Creep!</span>")
+						phrase = 6
+					if(6)
+						to_chat(user, "<span class='notice'>You set the restrictor to: HALT! HALT! HALT! HALT!</span>")
+						phrase = 1
 					else
-						to_chat(user, "<span class='notice'>FireFail</span>")
+						to_chat(user, "<span class='notice'>You set the restrictor to: HALT! HALT! HALT! HALT!</span>")
+						phrase = 1
+			if(2)
+				switch(phrase)
+					if(7)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Dead or alive you're coming with me.</span>")
+						phrase = 8
+					if(8)
+						to_chat(user, "<span class='notice'>You set the restrictor to: God made today for the crooks we could not catch yesterday.</span>")
+						phrase = 9
+					if(9)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Freeze, Scum Bag!</span>")
+						phrase = 10
+					if(10)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop right there, criminal scum!</span>")
+						phrase = 11
+					if(11)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Down on the floor, Creep!</span>")
+						phrase = 7
+					else
+						to_chat(user, "<span class='notice'>You set the restrictor to: Down on the floor, Creep!</span>")
+						phrase = 7
+			if(3)
+				switch(phrase)
+					if(12)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Go ahead, make my day.</span>")
+						phrase = 13
+					if(13)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop breaking the law, ass hole.</span>")
+						phrase = 14
+					if(14)
+						to_chat(user, "<span class='notice'>You set the restrictor to: You have the right to shut the fuck up.</span>")
+						phrase = 15
+					if(15)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Shut up crime!</span>")
+						phrase = 16
+					if(16)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Face the wrath of the golden bolt.</span>")
+						phrase = 17
+					if(17)
+						to_chat(user, "<span class='notice'>You set the restrictor to: I am, the LAW!</span>")
+						phrase = 18
+					if(18)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop or I'll bash you.</span>")
+						phrase = 12
+					else
+						to_chat(user, "<span class='notice'>You set the restrictor to: Go ahead, make my day.</span>")
+						phrase = 13
+
+			if(4)
+				switch(phrase)
+					if(1)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop in the name of the Law.</span>")
+						phrase = 2
+					if(2)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Compliance is in your best interest.</span>")
+						phrase = 3
+					if(3)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Prepare for justice.</span>")
+						phrase = 4
+					if(4)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Running will only increase your sentence.</span>")
+						phrase = 5
+					if(5)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Don't move, Creep!</span>")
+						phrase = 6
+					if(6)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Down on the floor, Creep!</span>")
+						phrase = 7
+					if(7)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Dead or alive you're coming with me.</span>")
+						phrase = 8
+					if(8)
+						to_chat(user, "<span class='notice'>You set the restrictor to: God made today for the crooks we could not catch yesterday.</span>")
+						phrase = 9
+					if(9)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Freeze, Scum Bag!</span>")
+						phrase = 10
+					if(10)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop right there, criminal scum!</span>")
+						phrase = 11
+					if(11)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop or I'll bash you.</span>")
+						phrase = 12
+					if(12)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Go ahead, make my day.</span>")
+						phrase = 13
+					if(13)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Stop breaking the law, ass hole.</span>")
+						phrase = 14
+					if(14)
+						to_chat(user, "<span class='notice'>You set the restrictor to: You have the right to shut the fuck up.</span>")
+						phrase = 15
+					if(15)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Shut up crime!</span>")
+						phrase = 16
+					if(16)
+						to_chat(user, "<span class='notice'>You set the restrictor to: Face the wrath of the golden bolt.</span>")
+						phrase = 17
+					if(17)
+						to_chat(user, "<span class='notice'>You set the restrictor to: I am, the LAW!</span>")
+						phrase = 18
+					if(18)
+						to_chat(user, "<span class='notice'>You set the restrictor to: HALT! HALT! HALT! HALT!</span>")
+						phrase = 1
+			else
+				to_chat(user, "<span class='notice'>You broke it.</span>")
 
 /obj/item/clothing/mask/gas/sechailer/attackby(obj/item/weapon/W as obj, mob/user as mob, params)
 	if(istype(W, /obj/item/weapon/screwdriver))

@@ -204,10 +204,13 @@
 			return
 		if(M == user)
 			user.visible_message("<span class='notice'>[user] starts to apply [src] to their [limb].</span>", \
+								 "<span class='notice'>You start to apply [src] to your [limb].</span>", \
 								 "<span class='notice'>You hear something being wrapped.</span>")
 			if(!do_mob(user, H, self_delay))
 				return
 		else
+			user.visible_message("<span class='notice'>[user] applies [src] to [H]'s [limb].</span>", \
+								 "<span class='notice'>You apply [src] to [H]'s [limb].</span>", \
 								 "<span class='green'>You hear something being wrapped.</span>")
 
 		affecting.status |= ORGAN_SPLINTED

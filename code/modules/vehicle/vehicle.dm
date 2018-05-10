@@ -81,10 +81,6 @@
 			if(A != src && A != M)
 				return
 	M.loc = get_turf(src)
-	for(var/path in actions_types)
-		new path(src)
-		path.Grant(M)
-	..()
 	handle_vehicle_offsets()
 
 /obj/vehicle/bullet_act(obj/item/projectile/Proj)
@@ -163,17 +159,3 @@
 
 /obj/vehicle/space/Process_Spacemove(direction)
 	return 1
-	
-//ACTIONS
-var/list/actions = list() //list of /datum/action's that this vehicle has.
-var/list/actions_types = list() //list of paths of action datums to give to the item on New().
-var/can_toggle = 1
-var/toggle_cooldown = null
-var/active_sound = null
-
-
-
-/obj/item/Destroy()
-	QDEL_LIST(actions)
-	master = null
-	return ..()

@@ -4,12 +4,49 @@
 	icon_state = "docwagon2"
 	keytype = /obj/item/key/ambulance
 	var/obj/structure/stool/bed/amb_trolley/bed = null
-	var/actions_types = list(/datum/action/item_action/toggle_helmet_light)
-	var/can_toggle = 1
-	var/toggle_cooldown = 20
-	var/active_sound = 'sound/items/WEEOO1.ogg'
+	var/datum/action/ambulance_alarm/AA
+	var/datum/looping_sound/ambulance_alarm/soundloop
+	
+
+/obj/vehicle/ambulance/New()
+	. = ..()
+	AA = new(src)
+	soundloop = new(list(src), FALSE)
 
 
+
+/datum/action/ambulance_alarm
+	name = "Toggle Sirens"
+	button_icon_state = "flashlight"
+	check_flags = AB_CHECK_RESTRAINED | AB_CHECK_STUNNED | AB_CHECK_LYING | AB_CHECK_CONSCIOUS
+
+
+
+/datum/action/ambulance_alarm/Trigger()
+    if(!..())
+        return FALSE
+    var/obj/vehicle/ambulance/A = target
+    if(!istype(A) || !A.soundloop)
+        return FALSE
+    if(A.soundloop.muted)
+        A.soundloop.start()
+    else
+        A.soundloop.stop()
+
+/datum/looping_sound/ambulance_alarm
+    start_length = 0
+    mid_sounds = list('sound/items/WEEOO1.ogg' = 1)
+    mid_length = 10
+    volume = 100
+
+
+/obj/vehicle/ambulance/post_buckle_mob(mob/living/M)
+    . = ..()
+    if(has_buckled_mobs())
+        AA.Grant(M)
+    else
+        AA.Remove(M)
+	
 	
 /obj/item/key/ambulance
 	name = "ambulance key"
@@ -44,6 +81,8 @@
 		bed.dir = Dir
 		if(bed.buckled_mob)
 			bed.buckled_mob.dir = Dir
+
+
 
 /obj/structure/stool/bed/amb_trolley
 	name = "ambulance train trolley"

@@ -4,8 +4,13 @@
 	icon_state = "docwagon2"
 	keytype = /obj/item/key/ambulance
 	var/obj/structure/stool/bed/amb_trolley/bed = null
+	var/actions_types = list(/datum/action/item_action/toggle_helmet_light)
+	var/can_toggle = 1
+	var/toggle_cooldown = 20
+	var/active_sound = 'sound/items/WEEOO1.ogg'
 
 
+	
 /obj/item/key/ambulance
 	name = "ambulance key"
 	desc = "A keyring with a small steel key, and tag with a red cross on it."

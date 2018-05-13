@@ -17,26 +17,35 @@
 
 /datum/action/ambulance_alarm
 	name = "Toggle Sirens"
-	button_icon_state = "flashlight"
+	button_icon_state = "docwagon2"
 	check_flags = AB_CHECK_RESTRAINED | AB_CHECK_STUNNED | AB_CHECK_LYING | AB_CHECK_CONSCIOUS
-
-
+	var/toggle_cooldown = 20
+	var/cooldown = 0
 
 /datum/action/ambulance_alarm/Trigger()
-    if(!..())
-        return FALSE
-    var/obj/vehicle/ambulance/A = target
-    if(!istype(A) || !A.soundloop)
-        return FALSE
-    if(A.soundloop.muted)
-        A.soundloop.start()
-    else
-        A.soundloop.stop()
+	if(!..())
+		return FALSE
+		
+	var/obj/vehicle/ambulance/A = target
+
+	if(!istype(A) || !A.soundloop)
+		return FALSE
+
+	if(world.time > cooldown + toggle_cooldown)
+		return FALSE
+
+	cooldown = world.time
+
+	if(A.soundloop.muted)
+		A.soundloop.start()
+	else
+		A.soundloop.stop()
+
 
 /datum/looping_sound/ambulance_alarm
     start_length = 0
     mid_sounds = list('sound/items/WEEOO1.ogg' = 1)
-    mid_length = 10
+    mid_length = 14
     volume = 100
 
 

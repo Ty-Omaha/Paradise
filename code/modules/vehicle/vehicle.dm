@@ -81,7 +81,9 @@
 			if(A != src && A != M)
 				return
 	M.loc = get_turf(src)
+	..()
 	handle_vehicle_offsets()
+
 
 /obj/vehicle/bullet_act(obj/item/projectile/Proj)
 	if(buckled_mob)

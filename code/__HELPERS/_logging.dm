@@ -29,6 +29,15 @@
 #define testing(msg)
 #endif
 
+//individual logging
+#define INDIVIDUAL_ATTACK_LOG		(config.log_attack)
+#define INDIVIDUAL_SAY_LOG			(config.log_say | config.log_whisper)
+#define INDIVIDUAL_EMOTE_LOG		(config.log_emote)
+#define INDIVIDUAL_COMMS_LOG		(config.log_pda)
+#define INDIVIDUAL_OOC_LOG			(config.log_ooc | config.log_admin)
+#define INDIVIDUAL_SHOW_ALL_LOG		(config.log_attack | config.log_say | config.log_whisper | config.log_emote  | config.log_pda | config.log_ooc | config.log_admin  | config.log_game)
+
+
 /proc/log_admin(text)
 	admin_log.Add(text)
 	if(config.log_admin)

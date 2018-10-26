@@ -81,7 +81,8 @@
 					body += "<a href='?src=[UID()];traitor="+UID+"'>TP</a> - "
 					body += "<a href='?src=[usr.UID()];priv_msg="+UID+"'>PM</a> - "
 					body += "<a href='?src=[UID()];subtlemessage="+UID+"'>SM</a> - "
-					body += "<a href='?src=[UID()];adminplayerobservefollow="+UID+"'>FLW</a>"
+					body += "<a href='?src=[UID()];adminplayerobservefollow="+UID+"'>FLW</a> - "
+					body += "<a href='?src=[UID()];individuallog="+UID+"'>LOGS</a>"
 					if(eyeUID)
 						body += "|<a href='?src=[UID()];adminplayerobservefollow="+eyeUID+"'>EYE</a>"
 					body += "<br>"

@@ -47,6 +47,73 @@
 		"Drask" = 'icons/mob/species/drask/suit.dmi',
 		"Vox" = 'icons/mob/species/vox/suit.dmi'
 		)
+	
+/obj/item/clothing/suit/space/hardsuit/ert/commander/naval
+	name = "naval combat hardsuit"
+	desc = "A military grade hardsuit worn by members of the Nanotrasen Navy."
+	icon_state = "naval_hardsuit"
+	item_state = "naval_hardsuit"
+	w_class = WEIGHT_CLASS_NORMAL
+	allowed = list(/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword/saber,/obj/item/restraints/handcuffs,/obj/item/tank)
+	armor = list(melee = 65, bullet = 60, laser = 40, energy = 35, bomb = 35, bio = 100, rad = 100)
+	allowed = list(/obj/item/flashlight, /obj/item/tank, /obj/item/t_scanner, /obj/item/rcd, /obj/item/crowbar, \
+	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/multitool, \
+	/obj/item/radio, /obj/item/analyzer, /obj/item/gun, \
+	/obj/item/melee)
+	strip_delay = 200
+	
+/obj/item/clothing/head/helmet/space/hardsuit/ert/commander/naval
+	name = "naval combat helmet"
+	desc = "A military grade helmet worn by members of the Nanotrasen Navy."
+	icon_state = "naval_helmet_commander"
+	item_state = "naval_helmet_commander"
+	armor = list(melee = 65, bullet = 60, laser = 40, energy = 35, bomb = 35, bio = 100, rad = 100)
+	hardsuit_restrict_helmet = 0 // naval helmets can be taken on and off at will.
+	strip_delay = 130
+	
+/obj/item/clothing/head/helmet/space/hardsuit/ert/security/naval
+	name = "naval combat helmet"
+	desc = "A military grade helmet worn by members of the Nanotrasen Navy."
+	icon_state = "naval_helmet"
+	item_state = "naval_helmet"
+
+	
+/obj/item/clothing/suit/space/hardsuit/ert/security/naval
+	name = "naval combat hardsuit"
+	desc = "A military grade hardsuit worn by members of the Nanotrasen Navy."
+	icon_state = "naval_hardsuit"
+	item_state = "naval_hardsuit"
+	w_class = WEIGHT_CLASS_NORMAL
+	allowed = list(/obj/item/gun,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword/saber,/obj/item/restraints/handcuffs,/obj/item/tank)
+	armor = list(melee = 65, bullet = 60, laser = 40, energy = 35, bomb = 35, bio = 100, rad = 100)
+	allowed = list(/obj/item/flashlight, /obj/item/tank, /obj/item/t_scanner, /obj/item/rcd, /obj/item/crowbar, \
+	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/multitool, \
+	/obj/item/radio, /obj/item/analyzer, /obj/item/gun, \
+	/obj/item/melee)
+	strip_delay = 200
+	
+/obj/item/clothing/head/helmet/space/hardsuit/ert/naval/officer
+	name = "naval officer helmet"
+	desc = "A military grade helmet worn by officers of the Nanotrasen Navy."
+	icon_state = "naval_helmet_officer"
+	item_state = "naval_helmet_officer"
+	
+/obj/item/clothing/head/helmet/space/hardsuit/ert/naval/commander
+	name = "naval combat commander helmet"
+	desc = "A military grade helmet worn by commanders of a Nanotrasen naval task force."
+	icon_state = "naval_helmet_commander"
+	item_state = "naval_helmet_commander"
+
+/obj/item/clothing/head/helmet/space/hardsuit/ert/naval/attack_self(mob/user)
+	if(camera || !has_camera)
+		..(user)
+	else
+		camera = new /obj/machinery/camera(src)
+		camera.network = list("Navy")
+		cameranet.removeCamera(camera)
+		camera.c_tag = user.name
+		to_chat(user, "<span class='notice'>User scanned as [camera.c_tag]. Camera activated.</span>")
+
 
 //Commander
 /obj/item/clothing/head/helmet/space/hardsuit/ert/commander
@@ -168,6 +235,7 @@
 	name = "elite emergency response team janitor suit"
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	icon_state = "ert_gjanitor"
+	
 
 //Paranormal
 /obj/item/clothing/head/helmet/space/hardsuit/ert/paranormal

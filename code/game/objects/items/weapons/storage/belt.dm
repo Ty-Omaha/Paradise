@@ -370,6 +370,16 @@
 	icon_state = "assaultbelt"
 	item_state = "assault"
 	storage_slots = 6
+	
+/obj/item/storage/belt/military/assault/naval/New()
+	..()
+	new /obj/item/ammo_box/magazine/m556(src)
+	new /obj/item/ammo_box/magazine/m556(src)
+	new /obj/item/ammo_box/magazine/m556(src)
+	new /obj/item/ammo_box/magazine/m556(src)
+	new /obj/item/ammo_box/magazine/m556(src)
+	new /obj/item/ammo_box/magazine/m556(src)
+
 
 /obj/item/storage/belt/janitor
 	name = "janibelt"

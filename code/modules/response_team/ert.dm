@@ -313,6 +313,18 @@ var/ert_request_answered = FALSE
 /datum/response_team/gamma/announce_team()
 	event_announcement.Announce("Attention, [station_name()]. We are sending a code GAMMA elite Emergency Response Team. Standby.", "ERT En-Route")
 
+
+/datum/response_team/naval
+	engineering_outfit = /datum/outfit/job/centcom/response_team/engineer/naval
+	security_outfit = /datum/outfit/job/centcom/response_team/security/naval
+	medical_outfit = /datum/outfit/job/centcom/response_team/medic/naval
+	command_outfit = /datum/outfit/job/centcom/response_team/commander/naval
+	janitor_outfit = /datum/outfit/job/centcom/response_team/security/naval // haha yeah right "naval janitors" - no.
+	paranormal_outfit = /datum/outfit/job/centcom/response_team/security/naval
+
+/datum/response_team/naval/announce_team()
+	event_announcement.Announce("Hailing, [station_name()]. This is Nanotrasen Defense Vessel Brutus. We are a Class-II military cruiser. We have received instruction to aid in your crisis. \n \n Prepare to be boarded. \n \n \n -NDV Brutus", "Naval Cruiser Intercept")
+
 /datum/outfit/job/centcom/response_team
 	name = "Response team"
 	var/rt_assignment = "Emergency Response Team Member"

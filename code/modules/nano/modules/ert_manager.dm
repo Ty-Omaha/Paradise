@@ -67,7 +67,7 @@
 		if(cyborg_slots > 0)
 			slots_list += "cyborg: [cyborg_slots]"
 		var/slot_text = jointext(slots_list, ", ")
-		notify_ghosts("An ERT is being dispatched. Open positions: [slot_text]")
+		notify_ghosts("An [ert_type == "Naval" ? "Naval Task Force" : "ERT"] is being dispatched. Open positions: [slot_text]")
 		message_admins("[key_name_admin(usr)] dispatched a [ert_type] ERT. Slots: [slot_text]", 1)
 		log_admin("[key_name(usr)] dispatched a [ert_type] ERT. Slots: [slot_text]")
 		autoclose = 1
@@ -86,6 +86,8 @@
 			return new /datum/response_team/red
 		if("Code Gamma")
 			return new /datum/response_team/gamma
+		if("Naval")
+			return new /datum/response_team/naval
 
 
 /datum/nano_module/ert_manager/ui_data()

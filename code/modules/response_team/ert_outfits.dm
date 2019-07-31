@@ -102,6 +102,40 @@
 		/obj/item/organ/internal/cyberimp/arm/flash
 	)
 
+/datum/outfit/job/centcom/response_team/commander/naval
+	rt_assignment = "Naval Boarding Party Commander"
+	rt_job = "Naval Boarding Party Commander"
+	name = "RT Commander (Naval)"
+	uniform = /obj/item/clothing/under/naval
+	shoes = /obj/item/clothing/shoes/magboots/advance
+	gloves = /obj/item/clothing/gloves/combat
+	suit = /obj/item/clothing/suit/space/hardsuit/ert/commander/naval
+	glasses = /obj/item/clothing/glasses/night
+	suit_store = /obj/item/gun/projectile/automatic/ar
+	belt = /obj/item/storage/belt/military/assault/naval
+	r_pocket = /obj/item/kitchen/knife/combat
+	l_pocket = /obj/item/grenade/frag
+
+	backpack_contents = list(
+		/obj/item/clothing/head/helmet/space/hardsuit/ert/commander/naval = 1,
+		/obj/item/clothing/mask/gas/sechailer/swat = 1,
+		/obj/item/storage/box/zipties = 1,
+		/obj/item/storage/lockbox/mindshield = 1,
+		/obj/item/ammo_box/magazine/enforcer/lethal = 2,
+		/obj/item/storage/lockbox/t4,
+		/obj/item/storage/lockbox/clusterbang
+
+	)
+	
+	cybernetic_implants = list(
+		/obj/item/organ/internal/cyberimp/chest/nutriment/plus,
+		/obj/item/organ/internal/cyberimp/eyes/hud/security,
+		/obj/item/organ/internal/cyberimp/brain/anti_stun,
+		/obj/item/organ/internal/cyberimp/arm/flash,
+		/obj/item/organ/internal/cyberimp/chest/reviver
+	)
+
+	
 //////////////////// SECURITY ///////////////////
 
 /datum/outfit/job/centcom/response_team/security
@@ -188,6 +222,38 @@
 		/obj/item/organ/internal/cyberimp/chest/reviver
 	)
 
+/datum/outfit/job/centcom/response_team/security/naval
+	name = "RT Naval"
+	rt_job = "Naval Sailor"
+	uniform = /obj/item/clothing/under/naval
+	id = /obj/item/card/id/ert/security
+	name = "RT Security (Naval)"
+	shoes = /obj/item/clothing/shoes/magboots/advance
+	gloves = /obj/item/clothing/gloves/combat
+	suit = /obj/item/clothing/suit/space/hardsuit/ert/security/naval
+	belt = /obj/item/storage/belt/military/assault/naval
+	suit_store = /obj/item/gun/projectile/automatic/ar
+	glasses = /obj/item/clothing/glasses/night
+	r_pocket = /obj/item/kitchen/knife/combat
+	l_pocket = /obj/item/grenade/frag
+
+	backpack_contents = list(
+		/obj/item/clothing/head/helmet/space/hardsuit/ert/security/naval = 1,
+		/obj/item/clothing/mask/gas/sechailer/swat = 1,
+		/obj/item/storage/box/zipties = 1,
+		/obj/item/storage/box/flashbangs = 1,
+		/obj/item/whetstone = 1,
+		/obj/item/grenade/frag,
+		/obj/item/grenade/frag,
+	)
+
+	cybernetic_implants = list(
+		/obj/item/organ/internal/cyberimp/chest/nutriment/plus,
+		/obj/item/organ/internal/cyberimp/eyes/hud/security,
+		/obj/item/organ/internal/cyberimp/brain/anti_stun,
+		/obj/item/organ/internal/cyberimp/arm/telebaton,
+		/obj/item/organ/internal/cyberimp/chest/reviver
+	)
 
 //////////////////// ENGINEER ///////////////////
 
@@ -271,6 +337,35 @@
 		/obj/item/organ/internal/cyberimp/arm/toolset
 	)
 
+/datum/outfit/job/centcom/response_team/engineer/naval
+	rt_job = "Naval Combat Engineer"
+	uniform = /obj/item/clothing/under/naval
+	name = "RT Engineer (Naval)"
+	shoes = /obj/item/clothing/shoes/magboots/advance
+	gloves = /obj/item/clothing/gloves/color/yellow
+	belt = /obj/item/storage/belt/utility/chief/full
+	suit = /obj/item/clothing/suit/space/hardsuit/ert/engineer/gamma
+	suit_store = /obj/item/gun/energy/gun/blueshield/pdw9
+	glasses = /obj/item/clothing/glasses/meson/night
+
+	l_pocket = /obj/item/t_scanner/extended_range
+	r_pocket = /obj/item/melee/classic_baton/telescopic
+
+	backpack_contents = list(
+		/obj/item/clothing/head/helmet/space/hardsuit/ert/engineer/gamma = 1,
+		/obj/item/clothing/mask/gas/sechailer/swat = 1,
+		/obj/item/rcd/combat = 1,
+		/obj/item/rcd_ammo/large = 3
+	)
+
+	cybernetic_implants = list(
+		/obj/item/organ/internal/cyberimp/chest/nutriment/plus,
+		/obj/item/organ/internal/cyberimp/eyes/hud/security,
+		/obj/item/organ/internal/cyberimp/brain/anti_stun,
+		/obj/item/organ/internal/cyberimp/eyes/shield,
+		/obj/item/organ/internal/cyberimp/arm/toolset
+	)
+	
 //////////////////// MEDIC ///////////////////
 
 /datum/outfit/job/centcom/response_team/medic
@@ -342,6 +437,40 @@
 
 /datum/outfit/job/centcom/response_team/medic/gamma
 	name = "RT Medic (Gamma)"
+	shoes = /obj/item/clothing/shoes/magboots/advance
+	gloves = /obj/item/clothing/gloves/combat
+	suit = /obj/item/clothing/suit/space/hardsuit/ert/medical/gamma
+	glasses = /obj/item/clothing/glasses/night
+	suit_store = /obj/item/gun/energy/gun/blueshield/pdw9
+
+	belt = /obj/item/defibrillator/compact/loaded
+
+	l_pocket = /obj/item/reagent_containers/hypospray/combat/nanites
+	r_pocket = /obj/item/reagent_containers/hypospray/autoinjector
+
+	backpack_contents = list(
+		/obj/item/clothing/head/helmet/space/hardsuit/ert/medical/gamma = 1,
+		/obj/item/clothing/mask/gas/sechailer/swat = 1,
+		/obj/item/bodyanalyzer/advanced = 1,
+		/obj/item/extinguisher/mini = 1,
+		/obj/item/roller = 1,
+		/obj/item/healthanalyzer/advanced = 1,
+		/obj/item/handheld_defibrillator = 1
+
+		)
+
+	cybernetic_implants = list(
+		/obj/item/organ/internal/cyberimp/arm/surgery/l,
+		/obj/item/organ/internal/cyberimp/arm/medibeam,
+		/obj/item/organ/internal/cyberimp/chest/nutriment/plus,
+		/obj/item/organ/internal/cyberimp/eyes/hud/medical,
+		/obj/item/organ/internal/cyberimp/brain/anti_stun
+	)
+	
+/datum/outfit/job/centcom/response_team/medic/naval
+	name = "RT Medic (Naval)"
+	name = "RT Medic"
+	rt_job = "Naval Corpsman"
 	shoes = /obj/item/clothing/shoes/magboots/advance
 	gloves = /obj/item/clothing/gloves/combat
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/medical/gamma

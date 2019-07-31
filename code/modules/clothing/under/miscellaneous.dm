@@ -26,6 +26,12 @@
 	item_state = "captain_fly"
 	item_color = "captain_fly"
 
+/obj/item/clothing/under/naval
+	name = "naval combat fatigues"
+	desc = "A combat uniform worn by members of the Nanotrasen Navy."
+	item_state = "naval"
+	icon_state = "naval"
+
 /obj/item/clothing/under/scratch
 	name = "white suit"
 	desc = "A white suit, suitable for an excellent host"

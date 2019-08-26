@@ -254,6 +254,15 @@
 	new /obj/item/grenade/flashbang(src)
 	update_icon()
 
+/obj/item/storage/belt/security/customs/New()
+	..()
+	new /obj/item/gun/projectile/automatic/pistol/enforcer/lethal(src)
+	new /obj/item/ammo_box/magazine/enforcer(src)
+	new /obj/item/ammo_box/magazine/enforcer(src)
+	new /obj/item/reagent_containers/spray/pepper(src)
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/melee/baton(src)
+
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"
 	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"

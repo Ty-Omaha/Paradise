@@ -127,6 +127,8 @@
 							karma_purchase(karma,45,"job","Magistrate")
 						if("9")
 							karma_purchase(karma,30,"job","Security Pod Pilot")
+						if("8")
+							karma_purchase(karma,20,"job","Customs Agent")
 				if(href_list["KarmaBuy2"])
 					var/karma=verify_karma()
 					if(isnull(karma)) //Doesn't display anything if karma database is down.

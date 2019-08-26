@@ -1548,3 +1548,24 @@
 	component_parts += new /obj/item/vending_refill/crittercare(0)
 	component_parts += new /obj/item/vending_refill/crittercare(0)
 	component_parts += new /obj/item/vending_refill/crittercare(0)
+	
+/* draft code for a fastpass where karma is also needed, remove before merge /proc/is_item_whitelisted(mob/M, var/item)
+	if(!dbcon.IsConnected())
+		to_chat(usr, "<span class='warning'>Unable to connect to whitelist database. Please try again later.<br></span>")
+		return FALSE
+	else
+		var/DBQuery/query = dbcon.NewQuery("SELECT items FROM [format_table_name("whitelist")] WHERE ckey='[M.ckey]'")
+		query.Execute()
+		while(query.NextRow())
+			var/itemlist = query.item[1]
+			if(itemlist!="*")
+				if(item in allowed_items) return TRUE
+			else return TRUE
+		return FALSE  
+*/		
+/obj/machinery/vending/nexus
+	name = "\improper NEXUS FastPass"
+	desc = "Buy a NEXUS FastPass today and skip those pesky Customs lines! Time is money!"
+	icon_state = "generic"
+	product_ads = "Skip the line! Buy a FastPass today!"
+	products = list(/obj/item/id_decal/nexus = 100) // price of $4000

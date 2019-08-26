@@ -73,6 +73,9 @@
 /var/const/access_minisat = 75
 /var/const/access_mineral_storeroom = 76
 /var/const/access_network = 77
+/var/const/access_nexus = 78
+/var/const/access_customs = 79
+
 
 /var/const/access_weapons = 99 //Weapon authorization for secbots
 

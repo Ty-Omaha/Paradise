@@ -100,3 +100,9 @@
 	path = /obj/item/id_decal/gold
 	donator_tier = 4
 	cost = 4
+
+/datum/gear/donor/nexus
+	display_name = "NEXUS Fastpass"
+	path = /obj/item/id_decal/nexus
+	donator_tier = 4
+	cost = 4	

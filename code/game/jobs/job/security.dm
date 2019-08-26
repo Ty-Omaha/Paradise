@@ -260,3 +260,36 @@
 	satchel = /obj/item/storage/backpack/satchel_sec
 	dufflebag = /obj/item/storage/backpack/duffel/security
 	box = /obj/item/storage/box/engineer
+	
+/datum/job/customs
+	title = "Customs Agent"
+	department_flag = KARMA
+	flag = CUSTOMS
+	total_positions = 2
+	spawn_positions = 2
+	is_command = 1
+	supervisors = "the Nanotrasen Representative"
+	department_head = list("Captain")
+	minimal_player_age = 21
+	access = list(access_security, access_sec_doors, access_brig, access_court, access_maint_tunnels, access_weapons, access_customs, access_RC_announce)
+	minimal_access = list(access_security, access_sec_doors, access_brig, access_maint_tunnels, access_weapons, access_customs, access_RC_announce)
+	
+/datum/outfit/job/customs
+	name = "Customs Agent"
+	jobtype = /datum/job/customs
+	uniform = /obj/item/clothing/under/rank/blueshield
+	suit = /obj/item/clothing/suit/armor/vest/combat
+	gloves = /obj/item/clothing/gloves/color/black
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_ear = /obj/item/radio/headset/headset_sec/alt
+	id = /obj/item/card/id/nanotrasen
+	pda = /obj/item/pda/security
+	implants = list(/obj/item/implant/mindshield)
+	backpack_contents = list(
+		/obj/item/restraints/handcuffs = 1
+	)
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/security
+	belt = /obj/item/storage/belt/security/customs
+

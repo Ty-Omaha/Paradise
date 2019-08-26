@@ -231,6 +231,8 @@
 		desc = decal.decal_desc
 		icon_state = decal.decal_icon_state
 		item_state = decal.decal_item_state
+		if(decal.access)
+			access |= decal.access //add access
 		qdel(decal)
 		qdel(W)
 		return
@@ -836,6 +838,7 @@
 	var/decal_icon_state = "id"
 	var/decal_item_state = "card-id"
 	var/override_name = 0
+	var/access
 
 /obj/item/id_decal/gold
 	name = "gold ID card decal"
@@ -876,6 +879,13 @@
 	decal_desc = "It's a card with a magnetic strip attached to some circuitry."
 	decal_icon_state = "emag"
 	override_name = 1
+	
+/obj/item/id_decal/nexus
+	name = "Nexus FastPass"
+	icon_state = "id_decal_centcom"
+	desc = "Attatch this pass to your ID to skip those pesky lines"
+	decal_icon_state = "centcom_old"
+	access = list(access_nexus)
 
 /proc/get_station_card_skins()
 	return list("data","id","gold","silver","security","medical","research","cargo","engineering","HoS","CMO","RD","CE","clown","mime","rainbow","prisoner")

@@ -207,6 +207,7 @@ var/list/karma_spenders = list()
 			dat += {"
 			<a href='?src=[UID()];karmashop=shop;KarmaBuy=1'>Unlock Barber -- 5KP</a><br>
 			<a href='?src=[UID()];karmashop=shop;KarmaBuy=2'>Unlock Brig Physician -- 5KP</a><br>
+			<a href='?src=[UID()];karmashop=shop;KarmaBuy=8'>Unlock Customs Agent -- 20KP</a><br>
 			<a href='?src=[UID()];karmashop=shop;KarmaBuy=3'>Unlock Nanotrasen Representative -- 30KP</a><br>
 			<a href='?src=[UID()];karmashop=shop;KarmaBuy=5'>Unlock Blueshield -- 30KP</a><br>
 			<a href='?src=[UID()];karmashop=shop;KarmaBuy=9'>Unlock Security Pod Pilot -- 30KP</a><br>
@@ -252,9 +253,6 @@ var/list/karma_spenders = list()
 			if("Vox Ambassador" in purchased)
 				refundable += "Vox Ambassador"
 				dat += "<a href='?src=[UID()];karmashop=shop;KarmaRefund=Vox Ambassador;KarmaRefundType=job;KarmaRefundCost=30'>Refund Vox Ambassador -- 30KP</a><br>"
-			if("Customs Officer" in purchased)
-				refundable += "Customs Officer"
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaRefund=Customs Officer;KarmaRefundType=job;KarmaRefundCost=30'>Refund Customs Officer -- 30KP</a><br>"
 			if("Nanotrasen Recruiter" in purchased)
 				refundable += "Nanotrasen Recruiter"
 				dat += "<a href='?src=[UID()];karmashop=shop;KarmaRefund=Nanotrasen Recruiter;KarmaRefundType=job;KarmaRefundCost=10'>Refund Nanotrasen Recruiter -- 10KP</a><br>"
@@ -380,7 +378,7 @@ var/list/karma_spenders = list()
 /client/proc/karmarefund(var/type,var/name,var/cost)
 	switch(name)
 		if("Tajaran Ambassador","Unathi Ambassador","Skrell Ambassador","Diona Ambassador","Kidan Ambassador",
-		"Slime People Ambassador","Grey Ambassador","Vox Ambassador","Customs Officer")
+		"Slime People Ambassador","Grey Ambassador","Vox Ambassador")
 			cost = 30
 		if("Nanotrasen Recruiter")
 			cost = 10

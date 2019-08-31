@@ -447,3 +447,10 @@ DISABLE_HIGH_POP_MC_MODE_AMOUNT 60
 
 ## Uncomment to give a confirmation before hitting start now
 #START_NOW_CONFIRMATION
+
+#Uncomment to enable high risk user checks (Note: by default this requires a private internal script to work which is not distributed)
+#HIGH_RISK_CHECKS
+
+#Define the player's age to the server (not byond account) in days to flag them for high risk
+#HIGH_RISK_AGE 10
+

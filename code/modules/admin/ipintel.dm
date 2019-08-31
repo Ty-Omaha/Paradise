@@ -226,3 +226,68 @@
 			to_chat(usr, "[target_ckey] was added to the VPN whitelist.")
 		else
 			to_chat(usr, "VPN whitelist unchanged.")
+			
+/proc/high_risk_check(var/ip, var/client/C)
+	if(!config.high_risk_checks)
+		return
+	var/ckey = C.ckey
+	if(C.player_age == "Requires database")
+		return
+	if(vpn_whitelist_check(ckey))
+		return 
+	if(C.player_age <= config.high_risk_age)
+		//change for testing purposes
+		var/list/http[] = world.Export("http://127.0.0.1/hrcheck/.php?requestedIP=[sanitizeSQL(ip)]")
+	
+		if(http)
+			var/status = text2num(http["STATUS"])
+			if(status == 200)
+				var/response = json_decode(file2text(http["CONTENT"]))
+				if(response)
+					var/flag_rating = text2num(response["Flag"])
+					var/ckey_var = response["ckey"] //ckey var we get in response, not the ckey they are currently on
+					if(isnum(flag_rating))
+						switch(flag_rating)
+							if(0)
+								return //user is clean
+							if(1)//user is dirty
+								message_admins("<span class='warning'>[C] is a high risk, [C.player_age] day old account and is most likely ban evading from the original account [ckey_var]</span>")
+								log_game("[C] is a high risk, [C.player_age] day old account and is most likely ban evading from the original account [ckey_var]")
+								
+								if(!dbcon.IsConnected() || !config.sql_enabled) //exit if the local database isnt working
+									return
+								message_admins("STEP 1")
+								var/sql = "SELECT ckey FROM [format_table_name("high_risk")] WHERE ckey = '[sanitizeSQL(ckey)]'"
+								var/DBQuery/query = dbcon.NewQuery(sql)
+								message_admins("STEP 2: [sql]")
+								query.Execute()
+								
+								var/ckey_flagged
+								
+								while(query.NextRow())
+									ckey_flagged = query.item[1]
+									message_admins("STEP 2.5")
+								if(!ckey_flagged)
+									message_admins("STEP 3")
+									sql =  ("INSERT INTO [format_table_name("high_risk")] (ckey) VALUES ('[sanitizeSQL(ckey)]')")
+									query = dbcon.NewQuery(sql)
+									query.Execute()
+									add_note(ckey, "[C] is a high risk, [C.player_age] day old account and is most likely ban evading from the original account [ckey_var]", null, "System", 0)
+									message_admins("STEP 4")
+							if(2)//oof something went wrong
+								message_admins("[C] is a [C.player_age] day old account and cannot be high risk screened due to an error. Please inform a Server Dev.")
+								log_game("[C] is a [C.player_age] day old account and cannot be high risk screened due to an error. Please inform a Server Dev. IP: [ip]")
+							else
+								handle_high_risk_error(C, ip, "Flag Rating Failure")
+					else
+						handle_high_risk_error(C, ip, "Isnum Failure")
+				else
+					handle_high_risk_error(C, ip, "Response Failure")
+			else
+				handle_high_risk_error(C, ip, "Status failure")
+		else
+			handle_high_risk_error(C, ip, "HTTP Failure")
+	
+/proc/handle_high_risk_error(var/client/C, var/ip, var/error_msg)
+			message_admins("[C] is a [C.player_age] day old account and cannot be high risk screened due to an [error_msg]. Please inform a Server Dev.")
+			log_game("[C] is a [C.player_age] day old account and cannot be high risk screened due to an [error_msg]. Please inform a Server Dev. IP: [ip]")

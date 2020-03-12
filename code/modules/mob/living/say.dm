@@ -133,6 +133,8 @@ proc/get_radio_key_from_channel(var/channel)
 			message = copytext(message, 3)
 
 	message = trim_left(message)
+	if(findtext(message, "~"))
+		message = replacetext(message, "~", " tilde")
 
 	//parse the language code and consume it
 	var/list/message_pieces = parse_languages(message)

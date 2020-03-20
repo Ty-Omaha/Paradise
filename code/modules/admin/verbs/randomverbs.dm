@@ -589,6 +589,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("<span class='warning'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!</span>", 1)
 	feedback_add_details("admin_verb","REJU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+//for custom announcement sounds and others so that it doesnt open the file browser as soon as the other verb is pressed, but after the user selects the custom sound
+/client/proc/upload_sound(S as sound)
+	return S
+
 /client/proc/cmd_admin_create_centcom_report()
 	set category = "Event"
 	set name = "Create Communications Report"
@@ -605,7 +609,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	var/list/MsgSound = list("Beep" = 'sound/misc/notice2.ogg',
 		"Enemy Communications Intercepted" = 'sound/AI/intercept2.ogg',
-		"New Command Report Created" = 'sound/AI/commandreport.ogg')
+		"New Command Report Created" = 'sound/AI/commandreport.ogg',
+		"Custom"
+		)
 
 	var/type = input(usr, "Pick a type of report to send", "Report Type", "") as anything in MsgType
 
@@ -622,6 +628,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	switch(alert("Should this be announced to the general population?",,"Yes","No", "Cancel"))
 		if("Yes")
 			var/beepsound = input(usr, "What sound should the announcement make?", "Announcement Sound", "") as anything in MsgSound
+			if(beepsound == "Custom")
+				var/sound/uploaded_sound = sound(upload_sound(), repeat = 0, wait = 1, channel = CHANNEL_ADMIN)
+				sounds_cache += uploaded_sound
+				MsgSound[beepsound] = uploaded_sound
 
 			command_announcement.Announce(input, customname, MsgSound[beepsound], , , type)
 			print_command_report(input, "[command_name()] Update")
